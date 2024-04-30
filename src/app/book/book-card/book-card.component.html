@@ -1,0 +1,6 @@
+<h3>{{ content.title }}</h3>
+<h4 [class]="customStyle.color">{{ content.author | uppercase }}</h4>
+<button (click)="handleDetailClick()">Details</button>
+<p>
+    {{ content.abstract }}
+</p>

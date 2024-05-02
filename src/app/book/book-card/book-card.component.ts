@@ -23,6 +23,4 @@ export class BookCardComponent {
   handleDetailClick(){
     this.detailClick.emit(this.content);
   }
-
-  
 }

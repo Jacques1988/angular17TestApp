@@ -4,7 +4,7 @@ import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 
 @Component({

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BookApiService {
-  books :Book[] = [
+  /* books :Book[] = [
     {
       title: "How to win friends",
       author: "Dale Carnegie",
@@ -18,7 +18,7 @@ export class BookApiService {
       author: "Kelly MCGonigal",
       abstract: "Based on Stanford University psychologist Kelly wildly popular course willpower",
     },
-  ];
+  ]; */
 
   bookApiUrl = 'http://localhost:4730/books';
   

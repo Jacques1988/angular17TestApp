@@ -1,0 +1,21 @@
+.navigation{
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+    height:4rem;
+    background-color:lightgrey;
+    padding-left:200px;
+    padding-right:200px;
+
+    &__link{
+        color:#fff;
+        font-size:1.5rem;
+        padding:1rem;
+        height:100%;
+
+        &__active{
+            background-color:#fff;
+            color:lightgrey;
+        }
+    }
+}

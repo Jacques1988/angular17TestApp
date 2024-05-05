@@ -1,4 +1,7 @@
-<input (input)="updateBookSearchTerm($event)">
+<section class="navigation">
+  <input (input)="updateBookSearchTerm($event)">
+  <h2>Bookmonkey</h2>
+</section>
 <ng-container *ngIf="books && books.length > 0">
   <app-book-card *ngFor="let book of books | bookFilter:bookSearchTerm let i = index"
    [id]="i" 

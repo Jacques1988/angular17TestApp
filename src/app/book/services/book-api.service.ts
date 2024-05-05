@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../book';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -19,11 +20,13 @@ export class BookApiService {
     },
   ];
 
-
-  constructor() { }
+  bookApiUrl = 'http://localhost:4730/books';
+  
+  constructor(private http: HttpClient) { }
 
 
   getAll(): Observable<Book[]>{
-    return of(this.books);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'})
+    return this.http.get<Book[]>(this.bookApiUrl, {headers});
   }
 }

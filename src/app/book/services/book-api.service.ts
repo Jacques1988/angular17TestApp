@@ -23,7 +23,7 @@ export class BookApiService {
   constructor() { }
 
 
-  getAll():Observable<Book[]>{
+  getAll(): Observable<Book[]>{
     return of(this.books);
   }
 }

@@ -11,6 +11,9 @@ export class BookFilterPipe implements PipeTransform {
     if(!books || !searchTitle){
       return books
     }
+    if(books === null ){
+      return []
+    }
     searchTitle = searchTitle.toLowerCase();
     return books.filter(book => book.title.toLowerCase().includes(searchTitle));
   }

@@ -1,4 +1,7 @@
 <input (input)="updateBookSearchTerm($event)">
 <ng-container *ngIf="books && books.length > 0">
-  <app-book-card *ngFor="let book of books | bookFilter:bookSearchTerm; let i = index" [id]="i" [content]="book" (detailClick)="goToBookDetails($event)"></app-book-card>
+  <app-book-card *ngFor="let book of books | bookFilter:bookSearchTerm let i = index"
+   [id]="i" 
+   [content]="book" 
+   (detailClick)="goToBookDetails($event)"></app-book-card>
 </ng-container>

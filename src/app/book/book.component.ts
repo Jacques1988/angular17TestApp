@@ -5,6 +5,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,9 @@ import { Subscription } from 'rxjs';
 })
 export class BookComponent {
 
-  constructor(private bookApi: BookApiService){}
+  constructor(private bookApi: BookApiService,
+              private router: Router
+  ){}
   books: Book[] = []
   bookSearchTerm!: string;
   subscription!: Subscription;
@@ -41,8 +44,7 @@ ngOnDestroy(){
 }
 
   goToBookDetails(book: Book){
-    console.log("Navigate to book details, soon...");
-    console.table(book);
+    this.router.navigate(['/books', book.isbn]);
   }
 
   updateBookSearchTerm(input : Event){

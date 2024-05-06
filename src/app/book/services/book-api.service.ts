@@ -7,26 +7,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BookApiService {
-  /* books :Book[] = [
-    {
-      title: "How to win friends",
-      author: "Dale Carnegie",
-      abstract: "In this book is a subscription about a beautiful story",
-    },
-    {
-      title: "The Willpower Instinct",
-      author: "Kelly MCGonigal",
-      abstract: "Based on Stanford University psychologist Kelly wildly popular course willpower",
-    },
-  ]; */
-
-  bookApiUrl = 'http://localhost:4730/books';
+  headers:HttpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
+  private readonly bookApiUrl = 'http://localhost:4730/books';
   
-  constructor(private http: HttpClient) { }
+  constructor(
+    private readonly http: HttpClient
+  ) { }
 
 
   getAll(): Observable<Book[]>{
-    const headers = new HttpHeaders({'Content-Type': 'application/json'})
-    return this.http.get<Book[]>(this.bookApiUrl, {headers});
+    return this.http.get<Book[]>(this.bookApiUrl, {headers: this.headers});
+  }
+
+  getBookByIsbn(isbn:string):Observable<Book>{
+    return this.http.get<Book>(`${this.bookApiUrl}/${isbn}`, {headers: this.headers});
   }
 }

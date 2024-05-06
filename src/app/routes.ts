@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { AboutComponent } from "./about/about.component";
 import { BookComponent } from "./book/book.component";
+import { BookDetailComponent } from "./book/book-detail/book-detail.component";
 
 
 export const App_ROUTES: Routes = [
@@ -17,4 +18,8 @@ export const App_ROUTES: Routes = [
         path:'books',
         component: BookComponent,
     },
+    {
+        path: 'books/:isbn',
+        component: BookDetailComponent,
+    }
 ]

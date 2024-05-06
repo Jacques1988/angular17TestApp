@@ -14,12 +14,5 @@ export const App_ROUTES: Routes = [
         path: 'about',
         component: AboutComponent,
     },
-    {
-        path:'books',
-        component: BookComponent,
-    },
-    {
-        path: 'books/:isbn',
-        component: BookDetailComponent,
-    }
+    
 ]

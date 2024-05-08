@@ -1,11 +1,15 @@
 import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Book } from './book';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+
 import { BookCardComponent } from './book-card/book-card.component';
+import { BookNewComponent } from './book-new/book-new.component';
+
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,6 +17,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     BookCardComponent,
+    BookNewComponent,
     BookFilterPipe,
     AsyncPipe,
     NgIf,
@@ -49,6 +54,10 @@ ngOnDestroy(){
 
   updateBookSearchTerm(input : Event){
     this.bookSearchTerm = (input.target as HTMLInputElement).value;
+  }
+
+  addNewBookPage(){
+    this.router.navigate(['new'])
   }
 
 }

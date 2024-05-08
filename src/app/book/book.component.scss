@@ -2,14 +2,31 @@
 
 .searchfield{
     display:flex;
-    justify-content: flex-start;
+    justify-content:space-between;
     align-items:center;
     height:4rem;
     padding-left:200px;
     padding-right:200px;
 
-    &__title{
-        padding-right:1rem;
-    }
-}
 
+    &__search-container{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        &__title{
+            padding-right:1rem;
+        }
+    }
+
+    &__new-book{
+        color:red;
+        cursor:pointer;
+        
+
+        &:hover{
+            color:blue;
+        }
+    }
+    
+}

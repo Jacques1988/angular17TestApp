@@ -1,6 +1,9 @@
 <section class="searchfield">
-  <h3 class="searchfield__title">Buch suchen</h3>
-  <input (input)="updateBookSearchTerm($event)">
+  <div class="searchfield__search-container">
+    <h3 class="searchfield__search-container__title">Buch suchen</h3>
+    <input (input)="updateBookSearchTerm($event)">
+  </div>
+  <h3><a class="searchfield__new-book" routerLink="new">Neues Buch hinzufügen</a></h3>
 </section>
 <ng-container *ngIf="books && books.length > 0">
   <app-book-card *ngFor="let book of books | bookFilter:bookSearchTerm let i = index"

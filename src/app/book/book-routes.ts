@@ -1,13 +1,20 @@
 import { BookComponent } from "./book.component"
 import { BookDetailComponent } from "./book-detail/book-detail.component"
+import { confirmLeaveGuard } from "./confirm-leave.guard"
+import { BookNewComponent } from "./book-new/book-new.component"
 
 export const BOOK_ROUTES = [
     {
-        path:'books',
+        path:'',
         component: BookComponent,
     },
     {
-        path: 'books/:isbn',
+        path: ':isbn',
         component: BookDetailComponent,
+        canDeactivate: [confirmLeaveGuard],
+    },
+    {
+        path:'new',
+        component: BookNewComponent,
     }
 ]

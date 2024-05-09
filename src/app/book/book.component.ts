@@ -3,13 +3,12 @@ import { Book } from './book';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 import { BookCardComponent } from './book-card/book-card.component';
-import { BookNewComponent } from './book-new/book-new.component';
 
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
 import { Subscription } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
-import { BookDetailComponent } from './book-detail/book-detail.component';
+
 
 
 
@@ -57,8 +56,7 @@ ngOnDestroy(){
     this.bookSearchTerm = (input.target as HTMLInputElement).value;
   }
 
-  addNewBookPage(){
-    this.router.navigate(['new'])
-  }
+
+
 
 }

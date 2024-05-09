@@ -9,12 +9,13 @@ export const BOOK_ROUTES = [
         component: BookComponent,
     },
     {
+        path:'new',
+        component: BookNewComponent,
+    },
+    {
         path: ':isbn',
         component: BookDetailComponent,
         canDeactivate: [confirmLeaveGuard],
     },
-    {
-        path:'new',
-        component: BookNewComponent,
-    }
+    
 ]

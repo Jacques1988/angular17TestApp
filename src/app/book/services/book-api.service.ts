@@ -7,19 +7,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BookApiService {
+
   headers:HttpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
-  private readonly bookApiUrl = 'http://localhost:4730/books';
+  private readonly bookApiUrl = 'http://localhost:4730';
   
   constructor(
     private readonly http: HttpClient
   ) { }
 
+  create(book:Book):Observable<Book>{
+    return this.http.post<Book>(`${this.bookApiUrl}/books/`, book)
+  }
 
   getAll(): Observable<Book[]>{
-    return this.http.get<Book[]>(this.bookApiUrl, {headers: this.headers});
+    return this.http.get<Book[]>(`${this.bookApiUrl}/books`, {headers: this.headers});
   }
 
   getBookByIsbn(isbn:string):Observable<Book>{
-    return this.http.get<Book>(`${this.bookApiUrl}/${isbn}`, {headers: this.headers});
+    return this.http.get<Book>(`${this.bookApiUrl}/books/${isbn}`, {headers: this.headers});
   }
 }

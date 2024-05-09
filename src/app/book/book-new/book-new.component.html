@@ -1,6 +1,14 @@
 <section class="section">
 <h1>Neues Buch hinzufügen</h1>
-<form>
-    <input type="text" placeholder="Author">
+<form [formGroup]="newForm" class="new-book-form" (ngSubmit)="create()">
+    <input formControlName="author" class="new-book-form__input" type="text" placeholder="Author">
+    <small class="form-field-hint" *ngIf="author.dirty && author.hasError('required')">Please insert an author name</small>
+    <input formControlName="title" class="new-book-form__input" type="text" placeholder="title">
+    <small class="form-field-hint" *ngIf="title.dirty && title.hasError('required')">Please insert a book title</small>
+    <input formControlName="subtitle" class="new-book-form__input" type="text" placeholder="subtitle">
+    <small class="form-field-hint" *ngIf="subtitle.dirty && subtitle.hasError('required')">Please insert an subtitle</small>
+    <input formControlName="abstract" class="new-book-form__input" type="text" placeholder="Abstract">
+    <small class="form-field-hint" *ngIf="abstract.dirty && abstract.hasError('required')">Please insert a booksubscription</small>
+    <button [disabled]="newForm.invalid" class="new-book-form__button" type="submit">Add new Book</button>
 </form>
 </section>

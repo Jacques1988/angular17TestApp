@@ -8,7 +8,8 @@ import { BookNewComponent } from './book-new/book-new.component';
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
 import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { BookDetailComponent } from './book-detail/book-detail.component';
 
 
 
@@ -17,11 +18,11 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [
     BookCardComponent,
-    BookNewComponent,
     BookFilterPipe,
     AsyncPipe,
     NgIf,
     NgFor,
+    RouterLink
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'

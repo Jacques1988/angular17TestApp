@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
 import { BookApiService } from '../services/book-api.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-book-detail',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './book-detail.component.html',
   styleUrl: './book-detail.component.scss'
 })
 export class BookDetailComponent {
-  book!:Book;
+  book:Book | undefined;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,

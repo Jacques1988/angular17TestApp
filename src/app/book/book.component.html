@@ -5,9 +5,13 @@
   </div>
   <h3><a class="searchfield__new-book" routerLink="new">Neues Buch hinzufügen</a></h3>
 </section>
-<ng-container *ngIf="books && books.length > 0">
-  <app-book-card *ngFor="let book of books | bookFilter:bookSearchTerm let i = index"
-   [id]="i" 
-   [content]="book" 
-   (detailClick)="goToBookDetails($event)"></app-book-card>
-</ng-container>
+@if(books$ | async; as books){
+  @for(book of books | bookFilter:bookSearchTerm; track book.isbn){
+    <app-book-card 
+
+     [content]="book" 
+     (detailClick)="goToBookDetails($event)"></app-book-card>
+  }
+    
+}
+

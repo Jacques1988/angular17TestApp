@@ -6,11 +6,8 @@ import { BookCardComponent } from './book-card/book-card.component';
 
 import { BookFilterPipe } from './book-filter/book-filter.pipe';
 import { BookApiService } from './services/book-api.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-book',
@@ -19,8 +16,6 @@ import { Router, RouterLink } from '@angular/router';
     BookCardComponent,
     BookFilterPipe,
     AsyncPipe,
-    NgIf,
-    NgFor,
     RouterLink
   ],
   templateUrl: './book.component.html',
@@ -31,21 +26,19 @@ export class BookComponent {
   constructor(private bookApi: BookApiService,
               private router: Router
   ){}
-  books: Book[] = []
+  books:Book[] = [] 
   bookSearchTerm!: string;
-  subscription!: Subscription;
+ /*  subscription!: Subscription; */
+  books$! : Observable<Book[]>; 
 
 ngOnInit(){
-  const observer = {
+  /* const observer = {
     next: (books: Book[]) => this.books = books,
     error: (error: any) => console.error(error),
     complete: () => {}
-  }
- this.subscription = this.bookApi.getAll().subscribe(observer);
-}
-
-ngOnDestroy(){
-  this.subscription?.unsubscribe();
+  } */
+ /* this.subscription = this.bookApi.getAll().subscribe(observer); */
+ this.books$ = this.bookApi.getAll();
 }
 
   goToBookDetails(book: Book){
@@ -56,7 +49,8 @@ ngOnDestroy(){
     this.bookSearchTerm = (input.target as HTMLInputElement).value;
   }
 
-
-
+  /* ngOnDestroy(){
+    this.subscription?.unsubscribe();
+  } */
 
 }

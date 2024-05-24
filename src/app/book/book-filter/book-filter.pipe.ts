@@ -7,13 +7,14 @@ import { Book } from '../book';
 })
 export class BookFilterPipe implements PipeTransform {
 
-  transform(books: Book[], searchTitle: string ): Book[] {
-    if(!books || !searchTitle){
-      return books
-    }
+  transform(books: Book[] | null, searchTitle: string ): Book[] {
     if(books === null ){
       return []
     }
+    if(!books || !searchTitle){
+      return books
+    }
+    
     searchTitle = searchTitle.toLowerCase();
     return books.filter(book => book.title.toLowerCase().includes(searchTitle));
   }
